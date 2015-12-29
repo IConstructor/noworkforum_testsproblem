@@ -60,9 +60,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NoWorkForum\NoWorkForum.csproj">
+    <ProjectReference Include="..\NoWorkForum\NoWorkForum.WebApi.csproj">
       <Project>{89831433-5FF9-4265-B473-AEDCD74EA3CC}</Project>
-      <Name>NoWorkForum</Name>
+      <Name>NoWorkForum.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

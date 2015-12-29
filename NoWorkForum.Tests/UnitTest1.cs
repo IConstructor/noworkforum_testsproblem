@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NoWorkForum.Tests
+namespace NoWorkForum.WebApi.WebApi.Tests
 {
     [TestClass]
     public class UnitTest1
