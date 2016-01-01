@@ -6,10 +6,10 @@
         ['$rootScope', 'common', shell]);
 
     function shell($rootScope, common) {
+
         var vm = this;
 
         activate();
-
         function activate() {
             common.activateController([], controllerId);
         }

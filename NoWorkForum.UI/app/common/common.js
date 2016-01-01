@@ -1,10 +1,6 @@
 (function () {
     'use strict';
 
-    // Define the common module 
-    // Contains services:
-    //  - common
-    //  - logger
     var commonModule = angular.module('common', []);
 
     // Must configure the common service and set its 
@@ -23,9 +19,9 @@
     });
 
     commonModule.factory('common',
-        ['$q', '$rootScope', '$timeout', 'commonConfig', 'logger', common]);
+        ['$q', '$rootScope', '$timeout',"$log", 'commonConfig', common]);
 
-    function common($q, $rootScope, $timeout, commonConfig, logger) {
+    function common($q, $rootScope, $timeout,$log, commonConfig) {
         var throttles = {};
 
         var service = {
@@ -36,16 +32,22 @@
             // generic
             activateController: activateController,
             isNumber: isNumber,
-            logger: logger, // for accessibility
+            log: log, 
             textContains: textContains
         };
 
         return service;
 
+        function log(controllerId, message)
+        {
+            $log.info("[" + controllerId + "]: " + message)
+        }
+
         function activateController(promises, controllerId) {
             return $q.all(promises).then(function (eventArgs) {
                 var data = { controllerId: controllerId };
                 $broadcast(commonConfig.config.controllerActivateSuccessEvent, data);
+                log(controllerId, "Controller activated");
             });
         }
 
