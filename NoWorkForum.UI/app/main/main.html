@@ -1,21 +1,21 @@
 ﻿<section ng-controller="MainController as vm" style="padding-left:10pt;padding-right:10pt;">
-                <div style="padding-left:10pt; padding-top:10pt;" class="table table-bordered" ng-repeat="row in rowCollection | limitTo:10">  
+                <div style="padding-left:10pt; padding-top:10pt;" class="table table-bordered" ng-repeat="post in vm.posts | limitTo:10">  
                         <div class="row">
-                            <div class="col-md-4"><b>Author:</b> <a class="text-info"href="#">{{row.Author}}</a></div>
-                            <div class="col-md-4"><b>Date:</b> {{row.Date|date:'dd MMMM'}}</div>
+                            <div class="col-md-4"><b>Author:</b> <a class="text-info"href="#">{{post.Author}}</a></div>
+                            <!--<div class="col-md-4"><b>Date:</b> {{post.Date|date:'dd MMMM'}}</div>-->
                         </div>
                         <div class="row">
-                            <div class="col-md-12"><b>Subject:</b> <a class="text-info" href="#">{{row.Subject}}</a></div>
+                            <div class="col-md-12"><b>Subject:</b> <a class="text-info" href="#">{{post.Subject}}</a></div>
                          </div>
                         <div class="row">
                             <b class="col-md-1">Groups:</b>
-                            <span ng-repeat="group in row.Groups | orderBy">
+                            <span ng-repeat="group in post.Groups | orderBy">
                                 {{group}}
                             </span>
                         </div>
                         <div class="row">
                             <b class="col-md-1">Tags:</b>
-                            <span ng-repeat="tag in row.Tags | orderBy  | filter:len ">
+                            <span ng-repeat="tag in post.Tags | orderBy  | filter:limitTo:5 ">
                                 {{tag}}
                             </span>
                         </div>

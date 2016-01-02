@@ -2,23 +2,29 @@
     'use strict';
     var controllerId = 'MainController';
 
-    angular.module('app').controller(controllerId,
-        ['$scope', 'common', MainController]);
+    angular.module('app').controller(controllerId, ['common',"datacontext", MainController]);
 
-        function MainController ($scope,common) {
+        function MainController(common,datacontext) {
+            var vm = this;
+            vm.activate = activate;
+            vm.posts = [];
+            vm.title = controllerId;
 
-        var vm = this;
-        vm.title = 'Main';
-
-        
         activate();
         function activate() {
-            $scope.rowCollection = [
-       { Author: 'Anton', Subject: 'Buy a notebook DELL', Date: new Date('1987-05-21'), Groups: ["Kydriashova 14", "Zhulianskaia", "Fiskulturi"], Tags: ["[SELL]", "[SPAM]"] },
-          { Author: 'Anton', Subject: 'Buy a notebook DELL', Date: new Date('1987-05-21'), Groups: ["Kydriashova 14", "Zhulianskaia", "Fiskulturi"], Tags: ["[SELL]", "[SPAM]"] }
-            ];
+            common.activateController([getPosts()], controllerId);
+        }
 
-            common.activateController([], controllerId);
+        function getPosts(){
+            return datacontext.getPostsPartials().success(function (data) {
+                common.log(controllerId, "getPostsPartials state-success");
+                common.log(controllerId, data);
+                return vm.posts = data;
+            });
+            //vm.topics = [
+            //{ Author: 'Anton', Subject: 'Buy a notebook DELL', Date: new Date('1987-05-21'), Groups: ["Kydriashova 14", "Zhulianskaia", "Fiskulturi"], Tags: ["[SELL]", "[SPAM]"] },
+            //{ Author: 'Anton', Subject: 'Buy a notebook DELL', Date: new Date('1987-05-21'), Groups: ["Kydriashova 14", "Zhulianskaia", "Fiskulturi"], Tags: ["[SELL]", "[SPAM]"] }
+            //];
         }
  }
 
