@@ -1,4 +1,4 @@
 ﻿(function() {
-    'use strict';
-    var app = angular.module('app');
+    //'use strict';
+    //var app = angular.module('forumApp');
 })();

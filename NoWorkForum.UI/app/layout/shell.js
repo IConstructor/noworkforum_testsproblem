@@ -2,11 +2,9 @@
     'use strict';
     
     var controllerId = 'shell';
-    angular.module('app').controller(controllerId,
-        ['$rootScope', 'common', shell]);
+    angular.module('forumApp').controller(controllerId,['common',shell]);
 
-    function shell($rootScope, common) {
-
+    function shell(common) {
         var vm = this;
 
         activate();

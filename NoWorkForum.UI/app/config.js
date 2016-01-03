@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var app = angular.module('app');
+    var app = angular.module('forumApp');
 
     // For use with the HotTowel-Angular-Breeze add-on that uses Breeze
 

@@ -10,13 +10,13 @@
                         <div class="row">
                             <b class="col-md-1">Groups:</b>
                             <span ng-repeat="group in post.Groups | orderBy">
-                                {{group}}
+                                {{group.Name}}
                             </span>
                         </div>
                         <div class="row">
                             <b class="col-md-1">Tags:</b>
                             <span ng-repeat="tag in post.Tags | orderBy  | filter:limitTo:5 ">
-                                {{tag}}
+                                [{{tag.Name}}]
                             </span>
                         </div>
                             <br />
