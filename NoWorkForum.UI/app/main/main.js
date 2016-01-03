@@ -2,7 +2,7 @@
     'use strict';
     var controllerId = 'MainController';
 
-    angular.module('forumApp').controller(controllerId, ['common', "datacontext", MainController]);
+    angular.module('forumApp').controller(controllerId, ['common', 'datacontext', MainController]);
 
         function MainController(common,datacontext) {
             var vm = this;
@@ -20,7 +20,6 @@
                 common.log(controllerId, "getPostsPartials state-success");
                 return vm.posts = data;
             });
-     
         }
  }
 
